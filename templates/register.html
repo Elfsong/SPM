@@ -9,6 +9,7 @@
         <div align="center">
             <h2>User Register</h2>
             <p>{% if message %} {{message}} {% endif %}</p>
+            <div class=flash>{{ message }}</div>
             <form method="POST">
                 <input type="text" name="username" placeholder="username">
                 <br>
