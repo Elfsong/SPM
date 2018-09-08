@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Document</title>
-    </head>
-
-    <body>
-        <div align="center">
-            <h2>User Register</h2>
-            <p>{% if message %} {{message}} {% endif %}</p>
-            <div class=flash>{{ message }}</div>
-            <form method="POST">
-                <input type="text" name="username" placeholder="username">
-                <br>
-                <input type="password" name="password" placeholder="password">
-                <br>
-                <input type="text" name="home_address" placeholder="Home Address">
-                <br>
-                <input type="text" name="phone_number" placeholder="Phone Number">
-                <br>
-                <input type="text" name="email_address" placeholder="Email Address">
-                <br>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </body>
-</html>
+{% extends "layout.html" %}
+{% block body %}
+    <div align="center">
+        <h2>User Register</h2>
+        <p>{% if message %} {{message}} {% endif %}</p>
+        <div class=flash>{{ message }}</div>
+        <form method="POST">
+            <input type="text" name="username" placeholder="username">
+            <br>
+            <input type="password" name="password" placeholder="password">
+            <br>
+            <input type="text" name="home_address" placeholder="Home Address">
+            <br>
+            <input type="text" name="phone_number" placeholder="Phone Number">
+            <br>
+            <input type="text" name="email_address" placeholder="Email Address">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}
