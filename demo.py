@@ -29,7 +29,7 @@ def login():
     if request.method == 'POST':
         if request.form['username'] != "user":
             error = 'Invalid username'
-        elif request.form['password'] != "passwd"":
+        elif request.form['password'] != "passwd":
             error = 'Invalid password'
         else:
             session['logged_in'] = True
