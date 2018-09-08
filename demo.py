@@ -1,10 +1,15 @@
-from flask import Flask,request,render_template,redirect
+from flask import Flask, request, render_template, redirect, flash
 
 app = Flask(__name__, static_url_path='', root_path='/root/SPM')    
 
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
+
+@app.route('/show')
+def show_entries():
+    entries = [{"title":"123", "text":"123123"}]
+    return render_template('show_entries.html', entries=entries)
 
 
 @app.route("/login",methods=['GET','POST'])
@@ -36,6 +41,7 @@ def register():
         # TODO: Connect with Database
 
         message = "Sign up successful!"
+        flash('Sign up successful!')
         return render_template('login.html',message=message)
     else:
         return render_template('register.html')
