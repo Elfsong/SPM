@@ -23,6 +23,26 @@ def login():
             return render_template('login.html',message=message)
     return render_template('login.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != "user":
+            error = 'Invalid username'
+        elif request.form['password'] != "passwd"":
+            error = 'Invalid password'
+        else:
+            session['logged_in'] = True
+            flash('You were logged in')
+            return redirect(url_for('show_entries'))
+    return render_template('login.html', error=error)
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    flash('You were logged out')
+    return redirect(url_for('login'))
+
 @app.route("/register",methods=['GET','POST'])
 def register():
     if request.method =='POST':
