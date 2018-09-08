@@ -33,6 +33,7 @@ def register():
         print("home_address:", home_address)
         print("phone_number:", phone_number)
         print("email_address:", email_address)
+        # TODO: Connect with Database
 
         message = "Sign up successful!"
         return render_template('login.html',message=message)
