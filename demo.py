@@ -37,7 +37,7 @@ def login():
         message = "Sign up successful!"
         return render_template('login.html',message=message)
     else:
-        return render_template('login.html')
+        return render_template('register.html')
 
 
 if __name__ == '__main__':
