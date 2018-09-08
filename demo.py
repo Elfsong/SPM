@@ -24,8 +24,16 @@ def login():
     if request.method =='POST':
         username = request.form['username']
         password = request.form['password']
+        home_address = request.form['home_address']
+        phone_number = request.form['phone_number']
+        email_address = request.form['email_address']
+
         print("Username:", username)
         print("Password:", password)
+        print("home_address:", home_address)
+        print("phone_number:", phone_number)
+        print("email_address:", email_address)
+
         message = "Sign up successful!"
         return render_template('login.html',message=message)
     else:
