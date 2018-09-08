@@ -40,7 +40,7 @@ def register():
         # TODO: Connect with Database
 
         message = "Sign up successful!"
-        return redirect("login.html", message = message)
+        return redirect(url_for("login", message = message))
     else:
         return render_template('register.html')
 
