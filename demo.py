@@ -11,7 +11,6 @@ def show_entries():
     entries = [{"title":"123", "text":"123123"}]
     return render_template('show_entries.html', entries=entries)
 
-
 @app.route("/login",methods=['GET','POST'])
 def login():
     if request.method =='POST':
