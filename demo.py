@@ -40,7 +40,6 @@ def register():
         # TODO: Connect with Database
 
         message = "Sign up successful!"
-        flash('Sign up successful!')
         return render_template('login.html',message=message)
     else:
         return render_template('register.html')
