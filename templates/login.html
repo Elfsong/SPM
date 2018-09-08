@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div align="center">
+<h2>User Management</h2>
+    <p>{% if message %} {{message}} {% endif %}</p>
+    <form method="POST">
+
+        <input type="text" name="username" placeholder="username">
+        <br>
+        <input type="password" name="password" placeholder="password">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
