@@ -45,6 +45,11 @@ def login():
             session["name"] = userinfo["username"]
             flash('You were logged in')
             return redirect(url_for('show_entries'))
+
+    if request.method == "GET":
+        print(request.form['title'])
+        return render_template('login.html', message=error)
+
     return render_template('login.html', message=error)
 
 
