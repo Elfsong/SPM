@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, redirect, flash, url_for, session
+import models.data
 
 app = Flask(__name__, static_url_path='', root_path='/root/SPM')    
 
