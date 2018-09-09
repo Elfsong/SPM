@@ -10,10 +10,10 @@ def index():
 
 
 @app.route('/show')
-def show_entries():
+def user_view():
     entries = [{"title": "123", "text": "123123"}, {"title": "123", "text": "123123"},
                {"title": "123", "text": "123123"}, {"title": "123", "text": "123123"}]
-    return render_template('show_entries.html', entries=entries)
+    return render_template('user_view.html', entries=entries)
 
 
 @app.route('/add', methods=['POST'])
@@ -47,9 +47,10 @@ def login():
             session["name"] = userinfo["username"]
             flash('You were logged in')
             if title == "manager":
-                return redirect("https://www.google.com")
-            elif title == "user":
                 return redirect("https://www.facebook.com")
+            elif title == "user":
+                return redirect(url_for("user_view"))
+
 
     if request.method == "GET":
         title = request.args.get('title')
