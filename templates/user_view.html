@@ -29,9 +29,10 @@
 <h3>{{ info }}</h3>
 <ul class=entries>
     {% for entry in entries %}
-    <li><h2>{{ entry.order_number }}</h2>{{ entry.d_address|safe }}
+    <li>{{ entry.order_number }}</li>
+        {{ entry.d_address|safe }}
         {% else %}
-    <li><em>Unbelievable. No entries here so far</em>
+    <li><em>Unbelievable. No entries here so far</em></li>
         {% endfor %}
 </ul>
 {% endblock %}
