@@ -1,25 +1,55 @@
 {% extends "layout.html" %}
 {% block body %}
 {% if session.logged_in %}
+
+<th scope="col">Order Number</th>
+            <th scope="col">Status</th>
+            <th scope="col">Box Number</th>
+            <th scope="col">Destination Address</th>
+            <th scope="col">Pickup Address</th>
+            <th scope="col">Daparture Date</th>
+            <th scope="col">Arrival Date</th>
+            <th scope="col">Pickup Date</th>
+            <th scope="col">HBL Number</th>
+            <th scope="col">Optional Message(from customer to shipper)</th>
+            <th scope="col">Optional Message(from shipper to collector)</th>
+            <th scope="col">Operation</th>
+
+
 <form action="{{ url_for('update_order') }}" method=post>
     <dl>
-        <dt>Number of Box:
+        <dt>Order Number:
+        <dd><input type=text size=30 name=order_number>
+
+        <dt>Status:
+        <dd><input type=text size=30 name=status>
+
+        <dt>Box Number:
         <dd><input type=text size=30 name=number_box>
 
-        <dt>Destination address:
-        <dd><input type=text size=30 name=d_address>
+        <dt>Destination Address:
+        <dd><input type=datetime-local size=30 name=d_address>
 
-        <dt>Pickup address:
-        <dd><input type=text size=30 name=a_address>
+        <dt>Pickup Address:
+        <dd><input type=datetime-local size=30 name=a_address>
 
-        <dt>Departure Date:
-        <dd><input type=datetime-local size=30 name=d_date>
+        <dt>Daparture Date:
+        <dd><input type=text size=30 name=d_date>
 
         <dt>Arrival Date:
-        <dd><input type=datetime-local size=30 name=a_date>
+        <dd><input type=text size=30 name=a_date>
 
-        <dt>Optional Message:
+        <dt>Pickup Date:
+        <dd><input type=text size=30 name=p_date>
+
+        <dt>HBL Number:
+        <dd><input type=text size=30 name=h_number>
+
+        <dt>Optional Message(from customer to shipper):
         <dd><input type=text size=30 name=o_message>
+
+        <dt>Optional Message(from shipper to collector):
+        <dd><input type=text size=30 name=os_message>
 
         <dd><input type=submit value=Submit>
     </dl>

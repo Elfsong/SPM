@@ -72,13 +72,17 @@ def update_order():
 
     if request.method == 'POST':
         order_info = {
-            "username": session["name"],
+            "order_number": request.form['order_number'],
+            "status": request.form['status'],
             "number_box": request.form['number_box'],
             "d_address": request.form['d_address'],
             "a_address": request.form['a_address'],
             "d_date": request.form['d_date'],
             "a_date": request.form['a_date'],
-            "o_message": request.form['o_message']
+            "p_date": request.form['p_date'],
+            "h_number": request.form['h_number'],
+            "o_message": request.form['o_message'],
+            "os_message": request.form['os_message'],
         }
 
         print(order_info)
@@ -88,7 +92,10 @@ def update_order():
         return redirect(url_for('manage_view'))
 
     if request.method == "GET":
-        return render_template('order_modify.html')
+        order_number = request.args.get('order_number')
+        entire = []
+
+        return render_template('order_modify.html', entire=entire)
 
 
 @app.route('/login', methods=['GET', 'POST'])
