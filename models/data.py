@@ -26,7 +26,7 @@ class data_layer:
                 return True, userinfo
         except Exception as e:
             print(e)
-            return False, None
+            return False, ""
 
         # Dees the username is a user
         try:
@@ -35,4 +35,4 @@ class data_layer:
                 return True, userinfo
         except Exception as e:
             print(e)
-            return False, None
+            return False, ""
