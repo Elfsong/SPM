@@ -42,14 +42,16 @@
           <th scope="col">address</th>
         </tr>
       </thead>
+        {% for entry in entries %}
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <th scope="row">{{ entry.order_number }}</th>
+          <td>{{ entry.d_address|safe }}</td>
         </tr>
       </tbody>
+        {% else %}
+        <li><em>Unbelievable. No entries here so far</em></li>
+        {% endfor %}
     </table>
 </ul>
 {% endblock %}
