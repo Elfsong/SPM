@@ -9,9 +9,15 @@ def index():
     return app.send_static_file('index.html')
 
 
-@app.route('/show')
+@app.route('/user_view')
 def user_view():
+    if not session.get('logged_in'):
+        return redirect(url_for("login"))
+
     try:
+        data_connector = models.data.data_layer()
+        data_connector.find_all_order_by_username("123")
+        
         info = session["info"]
         entries = [{"title": "123", "text": "123123"}, {"title": "123", "text": "123123"},
                    {"title": "123", "text": "123123"}, {"title": "123", "text": "123123"}]
@@ -41,7 +47,7 @@ def add_order():
         flash('New entry was successfully posted!')
     else:
         flash('Unknown Error!')
-        
+
     return redirect(url_for('user_view'))
 
 

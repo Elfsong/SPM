@@ -40,3 +40,7 @@ class data_layer:
         except Exception as e:
             print(e)
             return False
+
+    def find_all_order_by_username(self, username):
+        order_list = self.r.keys("order:*")
+        print(order_list)
