@@ -1,33 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 {% if session.logged_in %}
-<form action="{{ url_for('add_order') }}" method=post class=add-entry>
-    <dl>
-        <dt>Number of Box:
-        <dd><input type=text size=30 name=number_box>
-
-        <dt>Destination address:
-        <dd><input type=text size=30 name=d_address>
-
-        <dt>Pickup address:
-        <dd><input type=text size=30 name=a_address>
-
-        <dt>Departure Date:
-        <dd><input type=datetime-local size=30 name=d_date>
-
-        <dt>Arrival Date:
-        <dd><input type=datetime-local size=30 name=a_date>
-
-        <dt>Optional Message:
-        <dd><input type=text size=30 name=o_message>
-
-        <dd><input type=submit value=Submit>
-    </dl>
-</form>
-{% endif %}
-
 <!-- <h3>{{ info }}</h3> -->
-
 <table class="table">
     <thead>
         <tr>
@@ -36,7 +10,7 @@
             <th scope="col">Box Number</th>
             <th scope="col">Destination</th>
             <th scope="col">Pickup</th>
-            <th scope="col">Daparture</th>
+            <th scope="col">Departure</th>
             <th scope="col">Arrival</th>
             <th scope="col">Optional Message</th>
             <th scope="col">Operation</th>
@@ -53,7 +27,7 @@
             <td>{{ entry.d_date|safe }}</td>
             <td>{{ entry.a_date|safe }}</td>
             <td>{{ entry.o_message|safe }}</td>
-            <td><button type="button" class="btn btn-primary">Update</button></td>
+            <td><button type="button" class="btn btn-primary">Accept</button></td>
         </tr>
     </tbody>
     {% else %}

@@ -25,6 +25,20 @@ def user_view():
         print(e)
         return redirect(url_for("login"))
 
+@app.route('/manage_view')
+def manage_view():
+    if not session.get('logged_in'):
+        return redirect(url_for("login", title="manager"))
+
+    try:
+        entries = []
+        info = session["info"]
+
+        return render_template('user_view.html', entries=entries, info=info)
+    except Exception as e:
+        print(e)
+        return redirect(url_for("login"))
+
 
 @app.route('/add_order', methods=['POST'])
 def add_order():
