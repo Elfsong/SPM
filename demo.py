@@ -34,7 +34,7 @@ def manage_view():
         entries = []
         info = session["info"]
 
-        return render_template('user_view.html', entries=entries, info=info)
+        return render_template('manage_view.html', entries=entries, info=info)
     except Exception as e:
         print(e)
         return redirect(url_for("login"))
@@ -87,7 +87,7 @@ def login():
             session['info'] = userinfo
             flash('You were logged in')
             if title == "manager":
-                return redirect("https://www.facebook.com")
+                return redirect(url_for("manage_view"))
             elif title == "user":
                 return redirect(url_for("user_view"))
 
