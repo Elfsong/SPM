@@ -3,11 +3,25 @@
 {% if session.logged_in %}
 <form action="{{ url_for('add_order') }}" method=post class=add-entry>
     <dl>
-        <dt>Title:
-        <dd><input type=text size=30 name=title>
-        <dt>Text:
-        <dd><textarea name=text rows=5 cols=40></textarea>
-        <dd><input type=submit value=Share>
+        <dt>Number of Box:
+        <dd><input type=text size=30 name=number_box>
+
+        <dt>Destination address:
+        <dd><input type=text size=30 name=d_address>
+
+        <dt>Pickup address:
+        <dd><input type=text size=30 name=a_address>
+
+        <dt>Daparture Date:
+        <dd><input type=datetime-local size=30 name=d_date>
+
+        <dt>Arrival Date:
+        <dd><input type=datetime-local size=30 name=a_date>
+
+        <dt>Optional Message:
+        <dd><input type=text size=30 name=o_message>
+
+        <dd><input type=submit value=Submit>
     </dl>
 </form>
 {% endif %}

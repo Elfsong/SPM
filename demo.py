@@ -24,8 +24,13 @@ def user_view():
 def add_order():
     if not session.get('logged_in'):
         abort(401)
-    print(request.form['title'])
-    print(request.form['text'])
+
+    print(request.form['number_box'])
+    print(request.form['d_address'])
+    print(request.form['a_address'])
+    print(request.form['d_date'])
+    print(request.form['a_date'])
+    print(request.form['o_message'])
 
     flash('New entry was successfully posted')
     return redirect(url_for('user_view'))
