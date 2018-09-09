@@ -66,7 +66,7 @@ def add_order():
     return redirect(url_for('user_view'))
 
 @app.route('/update_order', methods=['GET', 'POST'])
-def add_order():
+def update_order():
     if not session.get('logged_in'):
         abort(401)
 
