@@ -25,12 +25,15 @@ def add_entry():
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != "user":
+        username = request.form['username']
+        password = request.form['password']
+        if username != "user":
             error = 'Invalid username'
-        elif request.form['password'] != "passwd":
+        elif password != "passwd":
             error = 'Invalid password'
         else:
             session['logged_in'] = True
+            session["name"] = username
             flash('You were logged in')
             return redirect(url_for('show_entries'))
     return render_template('login.html', message=error)
