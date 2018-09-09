@@ -35,8 +35,6 @@ def login():
         password = request.form['password']
         title = request.form['title']
 
-        print("title:", title)
-
         data_connector = models.data.data_layer()
         check_result, userinfo = data_connector.login_check(username, password, title)
 
@@ -48,7 +46,10 @@ def login():
             session['logged_in'] = True
             session["name"] = userinfo["username"]
             flash('You were logged in')
-            return redirect(url_for('show_entries'))
+            if title == "manager":
+                return redirect("https://www.google.com")
+            elif title == "user":
+                return redirect("https://www.facebook.com")
 
     if request.method == "GET":
         title = request.args.get('title')
