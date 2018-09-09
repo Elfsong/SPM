@@ -15,7 +15,8 @@
             <th scope="col">Pickup Date</th>
             <th scope="col">Cost</th>
             <th scope="col">HBL Number</th>
-            <th scope="col">Optional Message</th>
+            <th scope="col">Optional Message(from customer to shipper)</th>
+            <th scope="col">Optional Message(from shipper to collector)</th>
             <th scope="col">Operation</th>
         </tr>
     </thead>
@@ -33,6 +34,7 @@
             <td>{{ entry.cost|safe }}</td>
             <td>{{ entry.h_number|safe }}</td>
             <td>{{ entry.o_message|safe }}</td>
+            <td>{{ entry.os_message|safe }}</td>
             <td><button type="button" class="btn btn-primary">Update</button></td>
         </tr>
     </tbody>
