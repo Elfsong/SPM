@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 {% if session.logged_in %}
-<form action="{{ url_for('add_order') }}" method=post class=add-entry>
+<form action="{{ url_for('update_order') }}" method=post>
     <dl>
         <dt>Number of Box:
         <dd><input type=text size=30 name=number_box>

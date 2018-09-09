@@ -65,6 +65,31 @@ def add_order():
 
     return redirect(url_for('user_view'))
 
+@app.route('/update_order', methods=['GET', 'POST'])
+def add_order():
+    if not session.get('logged_in'):
+        abort(401)
+
+    if request.method == 'POST':
+        order_info = {
+            "username": session["name"],
+            "number_box": request.form['number_box'],
+            "d_address": request.form['d_address'],
+            "a_address": request.form['a_address'],
+            "d_date": request.form['d_date'],
+            "a_date": request.form['a_date'],
+            "o_message": request.form['o_message']
+        }
+
+        print(order_info)
+
+        flash('This entry was successfully updated!')
+
+        return redirect(url_for('manage_view'))
+
+    if request.method == "GET":
+        return render_template('order_modify.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
