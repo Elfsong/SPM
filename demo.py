@@ -16,8 +16,9 @@ def user_view():
 
     try:
         data_connector = models.data.data_layer()
-        data_connector.find_all_order_by_username("123")
-        
+        result = data_connector.find_all_order_by_username(session["name"])
+        print(result)
+
         info = session["info"]
         entries = [{"title": "123", "text": "123123"}, {"title": "123", "text": "123123"},
                    {"title": "123", "text": "123123"}, {"title": "123", "text": "123123"}]

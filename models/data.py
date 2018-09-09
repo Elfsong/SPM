@@ -43,4 +43,9 @@ class data_layer:
 
     def find_all_order_by_username(self, username):
         order_list = self.r.keys("order:*")
-        print(order_list)
+        result_list = []
+        for order in order_list:
+            order_info = self.r.hgetall(order)
+            if order_info["username"] == username:
+                result_list += [order_info]
+        return result_list
