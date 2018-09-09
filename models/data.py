@@ -56,3 +56,12 @@ class data_layer:
                 order_info["order_number"] = order
                 result_list += [order_info]
         return result_list
+
+    def find_all_order(self):
+        order_list = self.r.keys("order:*")
+        result_list = []
+        for order in order_list:
+            order_info = self.r.hgetall(order)
+            result_list += [order_info]
+
+        return result_list

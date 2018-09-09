@@ -31,7 +31,9 @@ def manage_view():
         return redirect(url_for("login", title="manager"))
 
     try:
-        entries = []
+        data_connector = models.data.data_layer()
+
+        entries = data_connector.find_all_order()
         info = session["info"]
 
         return render_template('manage_view.html', entries=entries, info=info)
