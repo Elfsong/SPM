@@ -2,14 +2,22 @@
 {% block body %}
 {% if session.logged_in %}
 
-
 <form action="{{ url_for('update_order') }}" method=post class=add-entry>
     <dl>
         <dt>Order Number:
-        <dd><input type=text size=30 name=order_number>
+        <dd><input type=text size=30 name=order_number value="{{ entry.order_number}}">
 
         <dt>Status:
-        <dd><input type=text size=30 name=status>
+        <dd><div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
 
         <dt>Box Number:
         <dd><input type=text size=30 name=number_box>

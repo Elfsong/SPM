@@ -64,5 +64,8 @@ class data_layer:
         for order in order_list:
             order_info = self.r.hgetall(order)
             result_list += [order_info]
-
         return result_list
+
+    def find_order(self, order_number):
+        order_info = self.r.hgetall(order_number)
+        return order_info
