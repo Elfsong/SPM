@@ -24,12 +24,7 @@ class data_layer:
             userinfo = self.r.hgetall("manager:"+username)
             if userinfo and userinfo["password"] == password:
                 return True, userinfo
-        except Exception as e:
-            print(e)
-            return False, ""
-
-        # Dees the username is a user
-        try:
+            print("KKK")
             userinfo = self.r.hgetall("user:"+username)
             if userinfo and userinfo["password"] == password:
                 return True, userinfo
