@@ -38,7 +38,7 @@ class data_layer:
             order_info["status"] = "To be Approved"
             order_info["p_date"] = "None"
             order_info["cost"] = "$" + str(int(order_info["number_box"]) * 35)
-            order_info["h_umber"] = "None"
+            order_info["h_number"] = "None"
             order_info["os_message"] = "None"
 
             self.r.hmset("order:" + current_order_number, order_info)
