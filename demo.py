@@ -42,7 +42,7 @@ def login():
 
         if not check_result:
             error = "Invaild username or password!"
-            return render_template('login.html', error=error, title=title)
+            return render_template('login.html', message=error, title=title)
 
         else:
             session['logged_in'] = True
