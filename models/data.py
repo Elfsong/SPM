@@ -9,10 +9,30 @@ class data_layer:
         self.r = redis.Redis(connection_pool=self.pool_instance)
 
     def register_new_customer(self, username_dict):
-        print(username_dict)
+        # print(username_dict)
         try:
-            self.r.hmset("ddd", username_dict)
+            self.r.hmset("user:"+username_dict["username"], username_dict)
+            print("Write Successful!")
             return True
         except Exception as e:
             print(e)
             return False
+
+    def login_check(self, username, password):
+        # Does the username is a manager
+        try:
+            userinfo = self.r.hgetall("manager:"+username)
+            if userinfo and userinfo["password"] == password:
+                return True, userinfo
+        except Exception as e:
+            print(e)
+            return False, None
+
+        # Dees the username is a user
+        try:
+            userinfo = self.r.hgetall("user:"+username)
+            if userinfo and userinfo["password"] == password:
+                return True, userinfo
+        except Exception as e:
+            print(e)
+            return False, None

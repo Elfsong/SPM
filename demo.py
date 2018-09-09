@@ -33,13 +33,16 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if username != "user":
-            error = 'Invalid username'
-        elif password != "passwd":
-            error = 'Invalid password'
+
+        data_connector = models.data.data_layer()
+        check_result, userinfo = data_connector.login_check(username, password)
+
+        if not check_result:
+            error = "Invaild username or password!"
+
         else:
             session['logged_in'] = True
-            session["name"] = username
+            session["name"] = userinfo["username"]
             flash('You were logged in')
             return redirect(url_for('show_entries'))
     return render_template('login.html', message=error)
