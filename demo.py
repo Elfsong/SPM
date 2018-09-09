@@ -34,9 +34,14 @@ def add_order():
         "a_date": request.form['a_date'],
         "o_message": request.form['o_message']
     }
-    print(order_info)
 
-    flash('New entry was successfully posted')
+    data_connector = models.data.data_layer()
+
+    if data_connector.add_new_order(order_info):
+        flash('New entry was successfully posted!')
+    else:
+        flash('Unknown Error!')
+        
     return redirect(url_for('user_view'))
 
 

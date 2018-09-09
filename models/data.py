@@ -30,3 +30,13 @@ class data_layer:
         except Exception as e:
             print(e)
             return False, ""
+
+    def add_new_order(self, order_info):
+        try:
+            current_order_number = self.r.get("order_number")
+            self.r.incr("order_number")
+            self.r.hmset("order:" + current_order_number, order_info)
+            return True
+        except Exception as e:
+            print(e)
+            return False
