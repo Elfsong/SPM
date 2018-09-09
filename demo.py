@@ -47,7 +47,7 @@ def login():
             return redirect(url_for('show_entries'))
 
     if request.method == "GET":
-        print(request.form['title'])
+        print(request.args.get('title'))
         return render_template('login.html', message=error)
 
     return render_template('login.html', message=error)
