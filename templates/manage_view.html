@@ -2,7 +2,9 @@
 {% block body %}
 {% if session.logged_in %}
 <!-- <h3>{{ info }}</h3> -->
-
+<script>
+    function update(order_number) {location.href = "http://149.28.182.219:5000/update_order?" + "order_number=" + title;}
+</script>
 <table class="table">
     <thead>
         <tr>
@@ -36,7 +38,7 @@
             <td>{{ entry.h_number|safe }}</td>
             <td>{{ entry.o_message|safe }}</td>
             <td>{{ entry.os_message|safe }}</td>
-            <td><button type="button" class="btn btn-primary">Update</button></td>
+            <td><button type="button" class="btn btn-primary" onclick="update('{{ entry.order_number }}')" >Update</button></td>
         </tr>
     </tbody>
     {% else %}
