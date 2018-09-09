@@ -93,10 +93,11 @@ def update_order():
 
     if request.method == "GET":
         order_number = request.args.get('order_number')
-        # print(order_number)
+        print(order_number)
 
         data_connector = models.data.data_layer()
         entire = data_connector.find_order(order_number)
+        print(entire)
 
         return render_template('order_modify.html', entire=entire)
 
