@@ -2,21 +2,8 @@
 {% block body %}
 {% if session.logged_in %}
 
-<th scope="col">Order Number</th>
-            <th scope="col">Status</th>
-            <th scope="col">Box Number</th>
-            <th scope="col">Destination Address</th>
-            <th scope="col">Pickup Address</th>
-            <th scope="col">Daparture Date</th>
-            <th scope="col">Arrival Date</th>
-            <th scope="col">Pickup Date</th>
-            <th scope="col">HBL Number</th>
-            <th scope="col">Optional Message(from customer to shipper)</th>
-            <th scope="col">Optional Message(from shipper to collector)</th>
-            <th scope="col">Operation</th>
 
-
-<form action="{{ url_for('update_order') }}" method=post>
+<form action="{{ url_for('update_order') }}" method=post class=add-entry>
     <dl>
         <dt>Order Number:
         <dd><input type=text size=30 name=order_number>

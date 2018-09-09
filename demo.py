@@ -93,6 +93,7 @@ def update_order():
 
     if request.method == "GET":
         order_number = request.args.get('order_number')
+        print(order_number)
         entire = []
 
         return render_template('order_modify.html', entire=entire)
