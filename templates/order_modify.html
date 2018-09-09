@@ -8,43 +8,34 @@
         <dd><input type=text size=30 name=order_number value="{{ entire.order_number}}">
 
         <dt>Status:
-        <dd><div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
+        <dd><input type=text size=30 name=status value="{{ entire.status}}">
 
         <dt>Box Number:
-        <dd><input type=text size=30 name=number_box>
+        <dd><input type=text size=30 name=number_box value="{{ entire.number_box}}">
 
         <dt>Destination Address:
-        <dd><input type=datetime-local size=30 name=d_address>
+        <dd><input type=text size=30 name=d_address value="{{ entire.d_address}}">
 
         <dt>Pickup Address:
-        <dd><input type=datetime-local size=30 name=a_address>
+        <dd><input type=text size=30 name=a_address value="{{ entire.a_address}}">
 
         <dt>Daparture Date:
-        <dd><input type=text size=30 name=d_date>
+        <dd><input type=date size=30 name=d_date value="{{ entire.d_date}}">
 
         <dt>Arrival Date:
-        <dd><input type=text size=30 name=a_date>
+        <dd><input type=date size=30 name=a_date value="{{ entire.a_date}}">
 
         <dt>Pickup Date:
-        <dd><input type=text size=30 name=p_date>
+        <dd><input type=date size=30 name=p_date value="{{ entire.p_date}}">
 
         <dt>HBL Number:
-        <dd><input type=text size=30 name=h_number>
+        <dd><input type=text size=30 name=h_number value="{{ entire.h_number}}">
 
         <dt>Optional Message(from customer to shipper):
-        <dd><input type=text size=30 name=o_message>
+        <dd><input type=text size=30 name=o_message value="{{ entire.o_message}}">
 
         <dt>Optional Message(from shipper to collector):
-        <dd><input type=text size=30 name=os_message>
+        <dd><input type=text size=30 name=os_message value="{{ entire.os_message}}">
 
         <dd><input type=submit value=Submit>
     </dl>
