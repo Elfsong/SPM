@@ -34,10 +34,13 @@
             <th scope="col">Order Number</th>
             <th scope="col">Status</th>
             <th scope="col">Box Number</th>
-            <th scope="col">Destination</th>
-            <th scope="col">Pickup</th>
-            <th scope="col">Daparture</th>
-            <th scope="col">Arrival</th>
+            <th scope="col">Destination Address</th>
+            <th scope="col">Pickup Address</th>
+            <th scope="col">Daparture Date</th>
+            <th scope="col">Arrival Date</th>
+            <th scope="col">Pickup Date</th>
+            <th scope="col">Cost</th>
+            <th scope="col">HBL Number</th>
             <th scope="col">Optional Message</th>
             <th scope="col">Operation</th>
         </tr>
@@ -52,6 +55,9 @@
             <td>{{ entry.a_address|safe }}</td>
             <td>{{ entry.d_date|safe }}</td>
             <td>{{ entry.a_date|safe }}</td>
+            <td>{{ entry.p_date|safe }}</td>
+            <td>{{ entry.cost|safe }}</td>
+            <td>{{ entry.h_number|safe }}</td>
             <td>{{ entry.o_message|safe }}</td>
             <td><button type="button" class="btn btn-primary">Update</button></td>
         </tr>
