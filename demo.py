@@ -21,7 +21,8 @@ def user_view():
         info = session["info"]
 
         return render_template('user_view.html', entries=entries, info=info)
-    except Exception:
+    except Exception as e:
+        print(e)
         return redirect(url_for("login"))
 
 
