@@ -11,6 +11,8 @@
     </dl>
 </form>
 {% endif %}
+
+<h1>{{ info }}</h1>
 <ul class=entries>
     {% for entry in entries %}
     <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}

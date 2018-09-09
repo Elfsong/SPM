@@ -11,9 +11,10 @@ def index():
 
 @app.route('/show')
 def user_view():
+    info = session["info"]
     entries = [{"title": "123", "text": "123123"}, {"title": "123", "text": "123123"},
                {"title": "123", "text": "123123"}, {"title": "123", "text": "123123"}]
-    return render_template('user_view.html', entries=entries)
+    return render_template('user_view.html', entries=entries, info=info)
 
 
 @app.route('/add', methods=['POST'])
@@ -45,6 +46,7 @@ def login():
         else:
             session['logged_in'] = True
             session["name"] = userinfo["username"]
+            session['info'] = userinfo
             flash('You were logged in')
             if title == "manager":
                 return redirect("https://www.facebook.com")
@@ -57,7 +59,6 @@ def login():
         if not title:
             title = "user"
         return render_template('login.html', title=title)
-
 
 
 @app.route('/logout')
