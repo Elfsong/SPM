@@ -25,12 +25,16 @@ def add_order():
     if not session.get('logged_in'):
         abort(401)
 
-    print(request.form['number_box'])
-    print(request.form['d_address'])
-    print(request.form['a_address'])
-    print(request.form['d_date'])
-    print(request.form['a_date'])
-    print(request.form['o_message'])
+    order_info = {
+        "username": session["name"],
+        "number_box": request.form['number_box'],
+        "d_address": request.form['d_address'],
+        "a_address": request.form['a_address'],
+        "d_date": request.form['d_date'],
+        "a_date": request.form['a_date'],
+        "o_message": request.form['o_message']
+    }
+    print(order_info)
 
     flash('New entry was successfully posted')
     return redirect(url_for('user_view'))
