@@ -33,7 +33,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        title = request.values.get("title")
+        title = request.form['title']
 
         print("title:", title)
 
@@ -51,9 +51,10 @@ def login():
 
     if request.method == "GET":
         title = request.args.get('title')
+        if not title:
+            title = "user"
         return render_template('login.html', title=title)
 
-    return render_template('login.html', message=error, title="user")
 
 
 @app.route('/logout')
