@@ -11,21 +11,24 @@ def index():
 
 @app.route('/show')
 def user_view():
-    info = session["info"]
-    entries = [{"title": "123", "text": "123123"}, {"title": "123", "text": "123123"},
-               {"title": "123", "text": "123123"}, {"title": "123", "text": "123123"}]
-    return render_template('user_view.html', entries=entries, info=info)
+    try:
+        info = session["info"]
+        entries = [{"title": "123", "text": "123123"}, {"title": "123", "text": "123123"},
+                   {"title": "123", "text": "123123"}, {"title": "123", "text": "123123"}]
+        return render_template('user_view.html', entries=entries, info=info)
+    except Exception:
+        return redirect(url_for("login"))
 
 
-@app.route('/add', methods=['POST'])
-def add_entry():
+@app.route('/add_order', methods=['POST'])
+def add_order():
     if not session.get('logged_in'):
         abort(401)
-    g.db.execute('insert into entries (title, text) values (?, ?)',
-                 [request.form['title'], request.form['text']])
-    g.db.commit()
+    print(request.form['title'])
+    print(request.form['text'])
+
     flash('New entry was successfully posted')
-    return redirect(url_for('show_entries'))
+    return redirect(url_for('user_view'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
