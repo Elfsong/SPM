@@ -33,6 +33,9 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        title = request.args.get("title")
+
+        print("title:", title)
 
         data_connector = models.data.data_layer()
         check_result, userinfo = data_connector.login_check(username, password)
@@ -47,17 +50,17 @@ def login():
             return redirect(url_for('show_entries'))
 
     if request.method == "GET":
-        print(request.args.get('title'))
-        return render_template('login.html', message=error)
+        title = request.args.get('title')
+        return render_template('login.html', title=title)
 
-    return render_template('login.html', message=error)
+    return render_template('login.html', message=error, title="user")
 
 
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
-    return redirect(url_for('login'))
+    return redirect(url_for('index'))
 
 
 @app.route("/register", methods=['GET', 'POST'])
