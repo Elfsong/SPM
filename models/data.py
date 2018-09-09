@@ -47,5 +47,6 @@ class data_layer:
         for order in order_list:
             order_info = self.r.hgetall(order)
             if order_info["username"] == username:
+                order_info["order_number"] = order
                 result_list += [order_info]
         return result_list

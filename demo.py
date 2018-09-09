@@ -16,12 +16,10 @@ def user_view():
 
     try:
         data_connector = models.data.data_layer()
-        result = data_connector.find_all_order_by_username(session["name"])
-        print(result)
+        entries = data_connector.find_all_order_by_username(session["name"])
 
         info = session["info"]
-        entries = [{"title": "123", "text": "123123"}, {"title": "123", "text": "123123"},
-                   {"title": "123", "text": "123123"}, {"title": "123", "text": "123123"}]
+
         return render_template('user_view.html', entries=entries, info=info)
     except Exception:
         return redirect(url_for("login"))
