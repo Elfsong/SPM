@@ -85,19 +85,20 @@ def update_order():
             "os_message": request.form['os_message'],
         }
 
-        print(order_info)
-
-        flash('This entry was successfully updated!')
+        # print(order_info)
+        data_connector = models.data.data_layer()
+        if data_connector.update_order_by_order_number(order_info):
+            flash('This entry was successfully updated!')
+        else:
+            flash('Unknown Error!')
 
         return redirect(url_for('manage_view'))
 
     if request.method == "GET":
         order_number = request.args.get('order_number')
-        print(order_number)
 
         data_connector = models.data.data_layer()
         entire = data_connector.find_order(order_number)
-        print(entire)
 
         return render_template('order_modify.html', entire=entire)
 

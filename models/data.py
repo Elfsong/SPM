@@ -69,3 +69,11 @@ class data_layer:
     def find_order(self, order_number):
         order_info = self.r.hgetall(order_number)
         return order_info
+
+    def update_order_by_order_number(self, order_info):
+        try:
+            self.r.hmset(order_info["order_number"], order_info)
+            return True
+        except Exception as e:
+            print(e)
+            return False

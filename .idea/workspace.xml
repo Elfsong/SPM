@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a29b063-ed28-4b3d-b36d-3535505074b2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/order_modify.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order_modify.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -344,7 +344,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19095000" />
+    <option name="totallyTimeSpent" value="19302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
