@@ -1,21 +1,23 @@
 {% extends "layout.html" %}
 {% block body %}
     <div align="center">
-        <h2>User Register</h2>
-        <p>{% if message %} {{message}} {% endif %}</p>
-        <div class=flash>{{ message }}</div>
-        <form method="POST">
-            <input type="text" name="username" placeholder="username">
-            <br>
-            <input type="password" name="password" placeholder="password">
-            <br>
-            <input type="text" name="home_address" placeholder="Home Address">
-            <br>
-            <input type="text" name="phone_number" placeholder="Phone Number">
-            <br>
-            <input type="text" name="email_address" placeholder="Email Address">
-            <br>
-            <input type="submit" value="Submit">
+        <h2>Customer Register</h2>
+        {% if message %}<p class=error><strong>Error:</strong> {{ message }}{% endif %}
+        <form action="{{ url_for('register') }}" method=post>
+            <dl>
+                <dt>Username:
+                <dd><input type=text name=username>
+                <dt>Password:
+                <dd><input type=password name=password>
+                <dt>Home Address:
+                <dd><input type=text name=home_address>
+                <dt>Phone number:
+                <dd><input type=text name=phone_number>
+                <dt>Email Address:
+                <dd><input type=text name=email_address>
+
+                <dd><input type=submit value=Login>
+            </dl>
         </form>
     </div>
 {% endblock %}
