@@ -32,24 +32,28 @@
     <thead>
         <tr>
             <th scope="col">Order Number</th>
+            <th scope="col">Status</th>
             <th scope="col">Box Number</th>
             <th scope="col">Destination</th>
             <th scope="col">Pickup</th>
             <th scope="col">Daparture</th>
             <th scope="col">Arrival</th>
             <th scope="col">Optional Message</th>
+            <th scope="col">Operation</th>
         </tr>
     </thead>
     {% for entry in entries %}
     <tbody>
         <tr>
             <th scope="row">{{ entry.order_number }}</th>
+            <td>{{ entry.status|safe }}</td>
             <td>{{ entry.number_box|safe }}</td>
             <td>{{ entry.d_address|safe }}</td>
             <td>{{ entry.a_address|safe }}</td>
             <td>{{ entry.d_date|safe }}</td>
             <td>{{ entry.a_date|safe }}</td>
             <td>{{ entry.o_message|safe }}</td>
+            <td><button type="button" class="btn btn-primary">Update</button></td>
         </tr>
     </tbody>
     {% else %}

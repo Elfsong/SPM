@@ -35,6 +35,7 @@ class data_layer:
         try:
             current_order_number = self.r.get("order_number")
             self.r.incr("order_number")
+            order_info["status"] = "To be Approved"
             self.r.hmset("order:" + current_order_number, order_info)
             return True
         except Exception as e:
