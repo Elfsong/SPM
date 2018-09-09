@@ -39,6 +39,7 @@ def add_order():
         "a_date": request.form['a_date'],
         "o_message": request.form['o_message']
     }
+    print(order_info)
 
     data_connector = models.data.data_layer()
 
