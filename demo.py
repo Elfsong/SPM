@@ -1,6 +1,5 @@
-from flask import Flask, request, render_template, redirect, flash, url_for, session, abort
-
 import models.data
+from flask import Flask, request, render_template, redirect, flash, url_for, session, abort
 
 app = Flask(__name__, static_url_path='', root_path='/root/SPM')
 
@@ -67,8 +66,16 @@ def register():
         print("home_address:", home_address)
         print("phone_number:", phone_number)
         print("email_address:", email_address)
+
+        user_dict = {"username": username,
+                     "password": password,
+                     "home_address": home_address,
+                     "phone_number": phone_number,
+                     "email_address": email_address}
+
         # TODO: Connect with Database
-        data_layer
+        data_connector = models.data.data_layer()
+        data_connector.register_new_customer(user_dict)
 
         message = "Sign up successful!"
         return redirect(url_for("login", message=message))
