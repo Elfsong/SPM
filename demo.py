@@ -61,24 +61,22 @@ def register():
         phone_number = request.form['phone_number']
         email_address = request.form['email_address']
 
-        print("Username:", username)
-        print("Password:", password)
-        print("home_address:", home_address)
-        print("phone_number:", phone_number)
-        print("email_address:", email_address)
-
         user_dict = {"username": username,
                      "password": password,
                      "home_address": home_address,
                      "phone_number": phone_number,
                      "email_address": email_address}
 
-        # TODO: Connect with Database
-        data_connector = models.data.data_layer()
-        data_connector.register_new_customer(user_dict)
-
-        message = "Sign up successful!"
-        return redirect(url_for("login", message=message))
+        try:
+            data_connector = models.data.data_layer()
+            if data_connector.register_new_customer(user_dict):
+                message = "Sign up successful!"
+                return redirect(url_for("login", message=message))
+            else:
+                raise Exception("Database connect error!")
+        except Exception as e:
+            print("Exception(Datalayer): ", e)
+            return render_template('register.html')
     else:
         return render_template('register.html')
 

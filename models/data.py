@@ -10,5 +10,9 @@ class data_layer:
 
     def register_new_customer(self, username_dict):
         print(username_dict)
-
-
+        try:
+            self.r.hmset("ddd", username_dict)
+            return True
+        except Exception as e:
+            print(e)
+            return False
