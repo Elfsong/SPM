@@ -33,12 +33,12 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        title = request.args.get("title")
+        title = request.values.get("title")
 
         print("title:", title)
 
         data_connector = models.data.data_layer()
-        check_result, userinfo = data_connector.login_check(username, password)
+        check_result, userinfo = data_connector.login_check(username, password, title)
 
         if not check_result:
             error = "Invaild username or password!"
