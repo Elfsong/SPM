@@ -35,6 +35,8 @@ class data_layer:
         try:
             current_order_number = self.r.get("order_number")
             self.r.incr("order_number")
+
+            order_info["order_number"] = "order:" + current_order_number
             order_info["status"] = "To be Approved"
             order_info["p_date"] = "None"
             order_info["cost"] = "$" + str(int(order_info["number_box"]) * 35)
@@ -53,7 +55,6 @@ class data_layer:
         for order in order_list:
             order_info = self.r.hgetall(order)
             if order_info["username"] == username:
-                order_info["order_number"] = order
                 result_list += [order_info]
         return result_list
 

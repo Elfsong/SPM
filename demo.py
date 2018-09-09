@@ -41,7 +41,6 @@ def manage_view():
         print(e)
         return redirect(url_for("login"))
 
-
 @app.route('/add_order', methods=['POST'])
 def add_order():
     if not session.get('logged_in'):
