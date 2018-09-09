@@ -26,32 +26,35 @@
 </form>
 {% endif %}
 
-<h3>{{ info }}</h3>
-<ul class=entries>
-    {% for entry in entries %}
-    <li>{{ entry.order_number }}</li>
-        {{ entry.d_address|safe }}
-        {% else %}
-    <li><em>Unbelievable. No entries here so far</em></li>
-        {% endfor %}
+<!-- <h3>{{ info }}</h3> -->
 
-    <table class="table">
-      <thead>
+<table class="table">
+    <thead>
         <tr>
-          <th scope="col">order_number</th>
-          <th scope="col">address</th>
+            <th scope="col">Order Number</th>
+            <th scope="col">Box Number</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Pickup</th>
+            <th scope="col">Daparture</th>
+            <th scope="col">Arrival</th>
+            <th scope="col">Optional Message</th>
         </tr>
-      </thead>
-        {% for entry in entries %}
-      <tbody>
+    </thead>
+    {% for entry in entries %}
+    <tbody>
         <tr>
-          <th scope="row">{{ entry.order_number }}</th>
-          <td>{{ entry.d_address|safe }}</td>
+            <th scope="row">{{ entry.order_number }}</th>
+            <td>{{ entry.number_box|safe }}</td>
+            <td>{{ entry.d_address|safe }}</td>
+            <td>{{ entry.a_address|safe }}</td>
+            <td>{{ entry.d_date|safe }}</td>
+            <td>{{ entry.a_date|safe }}</td>
+            <td>{{ entry.o_message|safe }}</td>
         </tr>
-      </tbody>
-        {% else %}
-        <li><em>Unbelievable. No entries here so far</em></li>
-        {% endfor %}
+    </tbody>
+    {% else %}
+    <li><em>Unbelievable. No entries here so far</em></li>
+    {% endfor %}
     </table>
 </ul>
 {% endblock %}
