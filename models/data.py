@@ -18,16 +18,15 @@ class data_layer:
             print(e)
             return False
 
-    def login_check(self, username, password):
-        # Does the username is a manager
+    def login_check(self, username, password, title):
         try:
-            userinfo = self.r.hgetall("manager:"+username)
+            userinfo = self.r.hgetall(title + ":" + username)
+
             if userinfo and userinfo["password"] == password:
                 return True, userinfo
-            print("KKK")
-            userinfo = self.r.hgetall("user:"+username)
-            if userinfo and userinfo["password"] == password:
-                return True, userinfo
+            else:
+                return False, None
+
         except Exception as e:
             print(e)
             return False, ""
