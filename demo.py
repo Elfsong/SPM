@@ -74,7 +74,6 @@ def update_order():
         order_info = {
             "order_number": request.form['order_number'],
             "status": request.form['status'],
-            "number_box": request.form['number_box'],
             "d_address": request.form['d_address'],
             "a_address": request.form['a_address'],
             "d_date": request.form['d_date'],
