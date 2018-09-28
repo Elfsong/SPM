@@ -1,4 +1,2 @@
-# SPM
-Group Assignment - unimelb
-
+Group Assignment
 Coding makes me happy:)
