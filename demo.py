@@ -90,7 +90,9 @@ def update_order():
         if data_connector.update_order_by_order_number(order_info):
             flash('This entry was successfully updated!')
             order_number = order_info["order_number"]
+            print("order_number:", order_number)
             email_address = data_connector.get_email_by_order_number(order_number)
+            print("email_address:", email_address)
             models.email_notice.send_email(email_address, order_info)
         else:
             flash('Unknown Error!')
