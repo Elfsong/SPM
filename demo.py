@@ -1,4 +1,5 @@
 import models.data
+import models.email_notice
 from flask import Flask, request, render_template, redirect, flash, url_for, session, abort
 
 app = Flask(__name__, static_url_path='', root_path='/root/SPM')
@@ -88,6 +89,7 @@ def update_order():
         data_connector = models.data.data_layer()
         if data_connector.update_order_by_order_number(order_info):
             flash('This entry was successfully updated!')
+            models.email_notice("dumingzhex@gmail.com", order_info)
         else:
             flash('Unknown Error!')
 

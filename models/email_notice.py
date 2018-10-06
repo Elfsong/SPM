@@ -19,7 +19,8 @@ def send_email(address, content):
     to_email = address
     smtp_server = "smtp.126.com"
 
-    msg = MIMEText("<html><body><h3>hello</h3><p>hello, send by python</p></body></html>", "html", "utf-8")
+    print(content)
+    msg = MIMEText("<html><body><h3>hello</h3><p>hello, send by python %s </p></body></html>" % content, "html", "utf-8")
     msg["From"] = format_addr("%s" % (from_email))
     msg["To"] = format_addr("%s" % (to_email))
     msg["Subject"] = Header("python email", "utf-8").encode()
