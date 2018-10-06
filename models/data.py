@@ -77,3 +77,13 @@ class data_layer:
         except Exception as e:
             print(e)
             return False
+
+    def get_email_by_order_number(self, order_number):
+        try:
+            username = self.r.hget(order_number, "username")
+            email_address = self.r.hget("user:" + username, "email_address")
+            return email_address
+        except Exception as e:
+            print(e)
+            return False
+
